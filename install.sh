@@ -7,12 +7,13 @@ sudo mkdir -p "/etc/$USER"
 sudo useradd $USER --home-dir "/etc/$USER"
 
 echo "INFO: Downloading agent binary..."
-wget http://download/url/file 2>/dev/null || curl -O  http://download/url/file
+sudo wget -O /etc/octoshield-agent/octoshield-agent https://raw.githubusercontent.com/octoshield/agent/master/octoshield-agent 2>/dev/null || sudo curl -o /etc/octoshield-agent/octoshield-agent https://raw.githubusercontent.com/octoshield/agent/master/octoshield-agent
+sudo chown octoshield-agent:octoshield-agent /etc/octoshield-agent/octoshield-agent
 
 echo "INFO: creating default configuration file in /etc/octoshield-agent/config.yml"
 
 sudo bash -c "cat >/etc/octoshield-agent/config.yml"  <<EOL
-token: TEST_TOKEN
+token: $TOKEN
 serverUrl: "http://localhost:8080"
 env: PREPROD
 #you must set at list 1 tag to select your agent
@@ -31,6 +32,8 @@ tags:
 #  insecureSkipVerify: true
 
 EOL
+sudo chown octoshield-agent:octoshield-agent /etc/octoshield-agent/config.yml
+sudo chmod 660 /etc/octoshield-agent/config.yml
 
 echo "INFO: Creating octoshield-agent service"
 sudo bash -c "cat >/etc/systemd/system/octoshield-agent.service"  <<EOL
@@ -61,9 +64,9 @@ if [ -f $FILE ]; then
     fi
 
     LINE="$USER        ALL = NOPASSWD: $RESTART_COMMAND #do not edit"
-    chmod +w $FILE
-    grep -q "^$USER" $FILE && sed -i "s|^$USER.*do not edit$|$LINE|g" $FILE || echo "$LINE" >> $FILE
-    chmod -w $FILE
+    sudo chmod +w $FILE
+    bach -c 'grep -q "^$USER" $FILE && sed -i "s|^$USER.*do not edit$|$LINE|g" $FILE || echo "$LINE" >> $FILE'
+    sudo chmod -w $FILE
     echo "INFO: $RESTART_COMMAND added as allowed sudo operation for $USER"
 else
     echo "WARN: couldn't locate $FILE to allow service restart for $USER. systemd/service restarts might not work as rollback command (permission issue)"
