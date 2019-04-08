@@ -1,0 +1,7 @@
+{
+  "docs": {
+    "OctoShield Agent": ["agent/agent-installation", "agent/agent-configuration"],
+    "Octoshield Server": ["server/server-installation"],
+    "Help": ["help"]
+  }
+}
