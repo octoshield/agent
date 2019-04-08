@@ -65,7 +65,7 @@ if [ -f $FILE ]; then
 
     LINE="$USER        ALL = NOPASSWD: $RESTART_COMMAND #do not edit"
     sudo chmod +w $FILE
-    bash -c 'grep -q "^$USER" $FILE && sed -i "s|^$USER.*do not edit$|$LINE|g" $FILE || echo "$LINE" >> $FILE'
+    sudo grep -q "^$USER" $FILE && sudo sed -i "s|^$USER.*do not edit$|$LINE|g" $FILE || sudo echo "$LINE" >> $FILE'
     sudo chmod -w $FILE
     echo "INFO: $RESTART_COMMAND added as allowed sudo operation for $USER"
 else
