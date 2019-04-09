@@ -17,10 +17,16 @@ The agent doesn't require any library to start, however some chaos task require 
 
 iptables and tc (traffic control) are required for some tasks. See details below.
 
+### Binary
+The agent binary is available at [https://raw.githubusercontent.com/octoshield/agent/master/octoshield-agent](https://raw.githubusercontent.com/octoshield/agent/master/octoshield-agent)
+
 ### Permissions
-The agent doesn't requires to run as root user.  
+The agent doesn't requires to run as root user.
+
 #### Capabilities
-The installation script will automatically create a systemd service with the proper capabilities. If you want to 
+The installation script will automatically create a systemd service with the proper capabilities. 
+
+Service example:
 
 ```bash
 [Unit]
@@ -36,10 +42,10 @@ ExecStart=/bin/bash -c "/etc/octoshield-agent/octoshield-agent --log-level DEBUG
 [Install]
 WantedBy=multi-user.target
 ```
-If you need to run the service with systemv instead of systemd, you'll have to change the `pam_cap.so` module
+If you need to run the service with systemv instead of systemd, you'll have to change the `pam_cap.so` module to add the capabilities to your user.
 
 #### service restarts (sudo)
-In addition to these capacities, you might want to reboot some services as rollback commands. We advise to add these services in your `/etc/sudoers` files:
+In addition to these capacities, you might want to reboot some services as rollback commands. We advise to add this sudo command in your `/etc/sudoers` files without password:
 
 ```bash
 octoshield-agent        ALL = NOPASSWD: /bin/systemctl restart *

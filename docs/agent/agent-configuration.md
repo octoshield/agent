@@ -27,6 +27,8 @@ tags:
 #  insecureSkipVerify: true
 ``` 
 
+If you don't set a uuid, the agent will automatically generate a uuid during the first startup and save it under a `uuid` file. 
+
 ## Agent options
 
 | option            | Description                   | default                           | values
