@@ -17,12 +17,13 @@ $sudo useradd $USER --home-dir "/etc/$USER"
 echo "INFO: Downloading agent binary..."
 $sudo wget -O /etc/octoshield-agent/octoshield-agent https://raw.githubusercontent.com/octoshield/agent/master/octoshield-agent 2>/dev/null || $sudo curl -o /etc/octoshield-agent/octoshield-agent https://raw.githubusercontent.com/octoshield/agent/master/octoshield-agent
 $sudo chown octoshield-agent:octoshield-agent /etc/octoshield-agent/octoshield-agent
+$sudo chmod +x /etc/octoshield-agent/octoshield-agent
 
 echo "INFO: creating default configuration file in /etc/octoshield-agent/config.yml"
 
 $sudo bash -c "cat >/etc/octoshield-agent/config.yml"  <<EOL
 token: $TOKEN
-serverUrl: "http://localhost:8080"
+serverUrl: "https://agent.octoshield.com"
 env: PREPROD
 #you must set at list 1 tag to select your agent
 tags:
@@ -40,7 +41,7 @@ tags:
 #  insecureSkipVerify: true
 
 EOL
-$sudo chown octoshield-agent:octoshield-agent /etc/octoshield-agent/config.yml
+$sudo chown -R octoshield-agent:octoshield-agent /etc/octoshield-agent
 $sudo chmod 660 /etc/octoshield-agent/config.yml
 
 echo "INFO: Creating octoshield-agent service"
