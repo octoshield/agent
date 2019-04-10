@@ -27,7 +27,8 @@ serverUrl: "https://agent.octoshield.com"
 env: PREPROD
 #you must set at list 1 tag to select your agent
 tags:
-#  key1: value1
+#  app: mysql
+#  dc: paris
 
 #extra options:
 #Agent uuid, if not set, a random uuid will be generated during the first startup
@@ -39,7 +40,6 @@ tags:
 #  username:
 #  password:
 #  insecureSkipVerify: true
-
 EOL
 $sudo chown -R octoshield-agent:octoshield-agent /etc/octoshield-agent
 $sudo chmod 660 /etc/octoshield-agent/config.yml
