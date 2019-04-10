@@ -15,6 +15,7 @@ $sudo mkdir -p "/etc/$USER"
 $sudo useradd $USER --home-dir "/etc/$USER"
 
 echo "INFO: Downloading agent binary..."
+$sudo rm -f /etc/octoshield-agent/octoshield-agent
 $sudo wget --no-cache -O /etc/octoshield-agent/octoshield-agent https://raw.githubusercontent.com/octoshield/agent/master/octoshield-agent 2>/dev/null || $sudo curl  -H 'Cache-Control: no-cache' -o /etc/octoshield-agent/octoshield-agent https://raw.githubusercontent.com/octoshield/agent/master/octoshield-agent
 $sudo chown octoshield-agent:octoshield-agent /etc/octoshield-agent/octoshield-agent
 $sudo chmod +x /etc/octoshield-agent/octoshield-agent
