@@ -4,6 +4,7 @@
 <url> <loc>http://doc.octoshield.com/users</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> <xhtml:link rel="alternate" hreflang="en" href="http://doc.octoshield.com/en/users" /> </url>
 <url> <loc>http://doc.octoshield.com/docs/agent/agent-configuration</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://doc.octoshield.com/docs/agent/agent-configuration" /> </url>
 <url> <loc>http://doc.octoshield.com/docs/agent/agent-installation</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://doc.octoshield.com/docs/agent/agent-installation" /> </url>
+<url> <loc>http://doc.octoshield.com/docs/api/api</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://doc.octoshield.com/docs/api/api" /> </url>
 <url> <loc>http://doc.octoshield.com/docs/help</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://doc.octoshield.com/docs/help" /> </url>
 <url> <loc>http://doc.octoshield.com/docs/server/server-installation</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://doc.octoshield.com/docs/server/server-installation" /> </url>
 </urlset>
