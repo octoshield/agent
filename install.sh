@@ -27,6 +27,7 @@ token: $TOKEN
 serverUrl: "https://agent.octoshield.com"
 env: PREPROD
 #you must set at list 1 tag to select your agent
+#the tags `hostname` and `ip` are automatically added for you
 tags:
 #  app: mysql
 #  dc: paris

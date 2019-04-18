@@ -13,6 +13,7 @@ serverUrl: "https://agent.octoshield.com"
 #Set your environment
 env: PREPROD
 #you must set at list 1 tag to select your agent
+#the tags `hostname` and `ip` are automatically added for you
 tags:
   app: mysql
 
